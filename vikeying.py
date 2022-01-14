@@ -141,6 +141,9 @@ def event_loop(selector, virtual_keyboard):
                         else:
                             capslock_is_on = ecodes.LED_CAPSL in device.leds()
                             caps_up(virtual_keyboard, other_key_pressed, capslock_is_on)
+                    elif key.keycode == 'KEY_CAPSLOCK' and key.keystate == key.key_hold:
+                        # do not let this "hold" state get registered as "other key pressed".
+                        debug("holding caps-lock...")
                     else:
                         other_key_pressed = True
 

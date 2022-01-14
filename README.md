@@ -66,7 +66,7 @@ The script to start the tool is:
 ./vikeying-runner.sh
 ```
 
-Or you can start it wit a parameter to NOT map the pause key as caps-lock-toggle
+Or you can start it with a parameter to NOT map the pause key as caps-lock-toggle
 (you can use alt + caps-lock to toggle caps state):
 
 ```
@@ -133,10 +133,10 @@ which need to start after login (Mint has a GUI widget for that to configure thi
 - Hit Pause key to turn on caps-lock.
 - Type some characters ```abcd```, they should show as ```ABCD``` ;-)
 - Hit ALT, keep it pressed, and hit and release caps-lock key, and then release ALT. This should toggle off the caps-lock led.
-- Type some characters ```abcd```, they should show as ```abcd``` ;-)
+- Type some characters ```abcd```, they should show as ```abcd```.
 - Hit ALT, keep it pressed, and hit and release caps-lock key, and then release ALT. This should toggle off the caps-lock led.
-- Type some characters ```abcd```, they should show as ```ABCD``` ;-)
-- Hit caps-lock and keep it pressed down, and hit the ```v``` key twice. You should see ^V as result.
+- Type some characters ```abcd```, they should show as ```ABCD```.
+- Hit caps-lock and keep it pressed down, and hit the ```v``` key twice, release caps-lock key. You should see ^V as result.
 - Hit caps-lock, and release it. You should see caps-lock led turning off.
 - Type ```:x``` and enter. This should execute the lowercase ```:x``` command: save the file and exit VI. It should NOT type this as text (as the caps-lock will have send an escape key).
 
@@ -158,14 +158,15 @@ The python script will fill in the blanks afterwards.
 
 ## Conclusion
 
-The script does seem to work, however, I have seen some occasions where I ended up with a non-working
+~~The script does seem to work, however, I have seen some occasions where I ended up with a non-working
 ctrl-key, or mysterious enabling of caps-lock-state when hitting the caps-lock-key together with some
 other keys or when keeping caps-lock pressed for a while (which it should not do that anymore with this
-script!).
+script!).~~ _I did find (and fix) a small bug in the script while writing the blog page about it ;-) So
+maybe the weird behaviour is gone? I suggest you just try it out for a while..._
 
 My conclusion would be that this was a nice exercise to find out what is possible in keyboard
-manipulation. I suspect that there might be some small timing issues to iron out, or perhaps
-some concurrency issues or other race conditions to dig in to.
+manipulation. ~~I suspect that there might be some small timing issues to iron out, or perhaps
+some concurrency issues or other race conditions to dig in to.~~ _(I hope this is fxed)_.
 
 I will leave this as is for now. My caps-lock key has a completely different mapping which I got used to
 (compose, using ```setxkbmap -option compose:caps```, for example hitting caps + " + e will lead to ë),
